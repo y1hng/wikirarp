@@ -15,6 +15,6 @@ Created and maintained by [wikirity](https://github.com/y1hng).
 Clone the repository and install it locally using `pip`:
 
 ```bash
-git clone [https://github.com/y1hng/wikirarp.git](https://github.com/y1hng/wikirarp.git)
+git clone https://github.com/y1hng/wikirarp.git
 cd wikirarp
 sudo pip install .
