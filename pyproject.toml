@@ -4,14 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wikirarp"
-version = "0.1.0"
+version = "0.2.0"
 description = "A fast, lightweight ARP network scanner and Python library."
 readme = "README.md"
 authors = [{ name = "wikirity" }]
 requires-python = ">=3.8"
 dependencies = [
     "scapy",
-    "colorama"
+    "colorama",
+    "mac_vendor_lookup"
 ]
 
 [project.scripts]
