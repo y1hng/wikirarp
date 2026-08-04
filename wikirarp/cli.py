@@ -2,8 +2,8 @@ import sys
 import argparse
 from colorama import Fore, Style, init
 from wikirarp.scanner import scan, RootPermissionError
+from wikirarp.mac_lookup import get_device_vendor
 
-# Initialize colorama
 init(autoreset=True)
 
 BANNER = f"""{Fore.RED}
@@ -36,12 +36,13 @@ def main():
             print(f"{Fore.YELLOW}[-]{Style.RESET_ALL} No active hosts found.")
             return
 
-        header = f"{'IP Address':<18} {'MAC Address':<18}"
+        header = f"{'IP Address':<18} {'MAC Address':<18} {'Vendor':<18}"
         print(f"{Fore.GREEN}{header}{Style.RESET_ALL}")
-        print("-" * 36)
+        print("-" * 54)
         
         for device in results:
-            print(f"{Fore.CYAN}{device['ip']:<18}{Style.RESET_ALL} {Fore.WHITE}{device['mac']:<18}{Style.RESET_ALL}")
+            vendor = get_device_vendor(device['mac'])
+            print(f"{Fore.CYAN}{device['ip']:<18}{Style.RESET_ALL} {Fore.WHITE}{device['mac']:<18}{Style.RESET_ALL} {Fore.YELLOW}{vendor:<18}{Style.RESET_ALL}")
 
         print(f"\n{Fore.GREEN}[+]{Style.RESET_ALL} Scan completed. Found {len(results)} host(s).")
 
